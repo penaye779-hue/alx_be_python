@@ -36,7 +36,7 @@ match priority:
         reminder = f"'{task}' is a medium priority task"
     case "low":
         reminder = f"'{task}' is a low priority task"
-    case _:  # This will handle any unexpected priority input (just in case)
+    case _:  # handle unexpected input
         reminder = f"'{task}' has an undefined priority"
 
 # If statement to modify reminder if time-bound
@@ -45,5 +45,5 @@ if time_bound == "yes":
 else:
     reminder += ". Consider completing it when you have free time."
 
-# Print the customized reminder
-print("\nReminder:", reminder)
+# Print the customized reminder exactly as expected
+print(reminder)
