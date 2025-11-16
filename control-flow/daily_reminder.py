@@ -1,12 +1,5 @@
 # daily_reminder.py
 
-import os
-
-# Check if file exists and is not empty
-file_name = "daily_reminder.py"
-if not os.path.isfile(file_name) or os.path.getsize(file_name) == 0:
-    print(f"Warning: {file_name} does not exist or is empty.")
-
 # Prompt for a single task
 while True:
     task = input("Enter your task: ").strip()
@@ -28,22 +21,20 @@ while True:
         break
     print("Invalid input. Enter yes or no.")
 
-# Match Case for task priority
+# Generate and print the customized reminder in one step
 match priority:
     case "high":
-        reminder = f"'{task}' is a high priority task"
+        if time_bound == "yes":
+            print(f"'{task}' is a high priority task that requires immediate attention today!")
+        else:
+            print(f"'{task}' is a high priority task. Consider completing it when you have free time.")
     case "medium":
-        reminder = f"'{task}' is a medium priority task"
+        if time_bound == "yes":
+            print(f"'{task}' is a medium priority task that requires immediate attention today!")
+        else:
+            print(f"'{task}' is a medium priority task. Consider completing it when you have free time.")
     case "low":
-        reminder = f"'{task}' is a low priority task"
-    case _:  # handle unexpected input
-        reminder = f"'{task}' has an undefined priority"
-
-# If statement to modify reminder if time-bound
-if time_bound == "yes":
-    reminder += " that requires immediate attention today!"
-else:
-    reminder += ". Consider completing it when you have free time."
-
-# Print the customized reminder exactly as expected
-print(reminder)
+        if time_bound == "yes":
+            print(f"'{task}' is a low priority task that requires immediate attention today!")
+        else:
+            print(f"'{task}' is a low priority task. Consider completing it when you have free time.")
