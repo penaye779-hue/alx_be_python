@@ -6,19 +6,19 @@ def display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []  # Must be a list
+    shopping_list = []
 
     while True:
-        display_menu()  # Must call display_menu in the loop
-        choice = int(input("Enter your choice: "))  # Numeric input
+        display_menu()
+        choice = int(input("Enter your choice: "))
 
         if choice == 1:
-            item = input("Enter item to add: ")
+            item = input("Enter the item to add: ")
             shopping_list.append(item)
             print(f"'{item}' added to the shopping list.")
 
         elif choice == 2:
-            item = input("Enter item to remove: ")
+            item = input("Enter the item to remove: ")
             if item in shopping_list:
                 shopping_list.remove(item)
                 print(f"'{item}' removed from the shopping list.")
@@ -26,9 +26,12 @@ def main():
                 print(f"'{item}' not found in the shopping list.")
 
         elif choice == 3:
-            print("Current shopping list:")
-            for i, item in enumerate(shopping_list, start=1):
-                print(f"{i}. {item}")
+            if shopping_list:
+                print("Current shopping list:")
+                for i, item in enumerate(shopping_list, start=1):
+                    print(f"{i}. {item}")
+            else:
+                print("Shopping list is empty.")
 
         elif choice == 4:
             print("Goodbye!")
